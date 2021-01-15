@@ -1,27 +1,54 @@
-# AngularTinyUrl
+# NgTinyUrl
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+I created this plugin using [TinyUrl](https://tinyurl.com/) api to use in angular 6+
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To install this library, run:
 
-## Code scaffolding
+```bash
+$ npm install ng-tinyUrl
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+```typescript
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+import { ShorturlModule } from './modules/shorturl/shorturl.module';
+import {NgTinyUrlModule} from 'ng-tiny-url';
 
-## Running unit tests
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgTinyUrlModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Once imported in your module, inject the NgTinyUrlService into your component as shown below: 
 
-## Running end-to-end tests
+```typescript
+import {NgTinyUrlService} from 'ng-tiny-url';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+export class AppComponent {
+  title = 'tinyUrlTest';
+  shortenedUrl = '';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  constructor(private tinyUrl: NgTinyUrlService) {
+    this.tinyUrl.shorten('www.google.com').subscribe(res => {
+      this.shortenedUrl = res;
+    });
+  }
+}
+```
+
+## License
+
+MIT © [Kelvin Esekhile](mailto:kelvinoesekhile@gmail.com)
