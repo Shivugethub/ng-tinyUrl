@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -15,6 +14,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "tiny-url": [
+        "dist/tiny-url/tiny-url",
+        "dist/tiny-url"
+      ],
+      "ng-tiny-url": [
+        "dist/ng-tiny-url/ng-tiny-url",
+        "dist/ng-tiny-url"
+      ]
+    }
   }
 }

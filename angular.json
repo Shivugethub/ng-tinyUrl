@@ -2,5 +2,210 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "tinyUrl": {
+      "projectType": "library",
+      "root": "projects/tiny-url",
+      "sourceRoot": "projects/tiny-url/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tiny-url/tsconfig.lib.json",
+            "project": "projects/tiny-url/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tiny-url/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tiny-url/src/test.ts",
+            "tsConfig": "projects/tiny-url/tsconfig.spec.json",
+            "karmaConfig": "projects/tiny-url/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tiny-url/tsconfig.lib.json",
+              "projects/tiny-url/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tinyUrlTest": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/tinyUrlTest",
+      "sourceRoot": "projects/tinyUrlTest/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tinyUrlTest",
+            "index": "projects/tinyUrlTest/src/index.html",
+            "main": "projects/tinyUrlTest/src/main.ts",
+            "polyfills": "projects/tinyUrlTest/src/polyfills.ts",
+            "tsConfig": "projects/tinyUrlTest/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/tinyUrlTest/src/favicon.ico",
+              "projects/tinyUrlTest/src/assets"
+            ],
+            "styles": [
+              "projects/tinyUrlTest/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tinyUrlTest/src/environments/environment.ts",
+                  "with": "projects/tinyUrlTest/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tinyUrlTest:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tinyUrlTest:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tinyUrlTest:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tinyUrlTest/src/test.ts",
+            "polyfills": "projects/tinyUrlTest/src/polyfills.ts",
+            "tsConfig": "projects/tinyUrlTest/tsconfig.spec.json",
+            "karmaConfig": "projects/tinyUrlTest/karma.conf.js",
+            "assets": [
+              "projects/tinyUrlTest/src/favicon.ico",
+              "projects/tinyUrlTest/src/assets"
+            ],
+            "styles": [
+              "projects/tinyUrlTest/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tinyUrlTest/tsconfig.app.json",
+              "projects/tinyUrlTest/tsconfig.spec.json",
+              "projects/tinyUrlTest/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/tinyUrlTest/e2e/protractor.conf.js",
+            "devServerTarget": "tinyUrlTest:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tinyUrlTest:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ng-tinyUrl": {
+      "projectType": "library",
+      "root": "projects/ng-tiny-url",
+      "sourceRoot": "projects/ng-tiny-url/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-tiny-url/tsconfig.lib.json",
+            "project": "projects/ng-tiny-url/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-tiny-url/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-tiny-url/src/test.ts",
+            "tsConfig": "projects/ng-tiny-url/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-tiny-url/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-tiny-url/tsconfig.lib.json",
+              "projects/ng-tiny-url/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "tinyUrl"
 }

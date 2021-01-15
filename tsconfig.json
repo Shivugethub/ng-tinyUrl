@@ -6,5 +6,24 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/tiny-url/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/tiny-url/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/tinyUrlTest/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/tinyUrlTest/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ng-tiny-url/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ng-tiny-url/tsconfig.spec.json"
+    }
+]
 }
