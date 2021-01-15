@@ -7,14 +7,13 @@ An angular library to shorten url using [TinyUrl](https://tinyurl.com/) api. Wor
 To install this library, run:
 
 ```bash
-$ npm install ng-tinyUrl
+$ npm install ng-tiny-url
 ```
 
 ## Usage
 
 ```typescript
 
-import { ShorturlModule } from './modules/shorturl/shorturl.module';
 import {NgTinyUrlModule} from 'ng-tiny-url';
 
 @NgModule({
