@@ -1,11 +1,28 @@
 {
   "name": "ng-tiny-url",
   "version": "1.0.0",
+  "description": "Angular 6+ library to shorten url",
   "peerDependencies": {
     "@angular/common": "^10.0.14",
     "@angular/core": "^10.0.14"
   },
+  "keywords": [
+    "Url",
+    "short url",
+    "url shortener",
+    "ng tinyUrl",
+    "tinyUrl"
+  ],
+  "author": {"email": "kelvinoesekhile@gmail.com", "name": "Kelvin Esekhile"},
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cozmik/ng-tinyUrl"
+  },
+  "bugs": {
+    "url": "https://github.com/cozmik/ng-tinyUrl/issues"
+  },
+  "homepage": "https://github.com/cozmik/ng-tinyUrl/blob/main/README.md"
 }
