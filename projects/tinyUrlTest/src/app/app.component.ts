@@ -13,6 +13,7 @@ export class AppComponent {
   constructor(private tinyUrl: NgTinyUrlService) {
     this.tinyUrl.shorten('www.google.com').subscribe(res => {
       this.shortenedUrl = res;
+      console.log(res); // https://tinyurl.com/8wa5w2o;
     });
   }
 }
