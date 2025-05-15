@@ -11,7 +11,7 @@ export class AppComponent {
   shortenedUrl = '';
 
   constructor(private tinyUrl: NgTinyUrlService) {
-    this.tinyUrl.shorten('www.google.com').subscribe(res => {
+    this.tinyUrl.shorten('https://www.google.com').subscribe(res => {
       this.shortenedUrl = res;
       console.log(res); // https://tinyurl.com/8wa5w2o;
     });
